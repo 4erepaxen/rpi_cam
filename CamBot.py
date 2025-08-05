@@ -25,7 +25,7 @@ def handle(msg):
     print("Message received from " + str(chat_id))
 
     if telegramText == "/start":
-        bot.sendMessage(chat_id, "Welcome to Idris Bot")
+        bot.sendMessage(chat_id, "Camera online...")
     else:
         receiveTelegramMessage = True
 
