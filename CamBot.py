@@ -38,7 +38,7 @@ def capture():
     print("Sending photo to " + str(chat_id))
     bot.sendPhoto(chat_id, photo = open('./photo.jpg', 'rb'))
 
-bot = telepot.Bot('8245345760:AAFbWqrcvpNWZawzsVkapZglUXrhS9h1IRo')
+bot = telepot.Bot('8348557916:AAHNqyrlETCEldf4Eask2dupnRi7OpuTa90')
 bot.message_loop(handle)
 
 receiveTelegramMessage = False
