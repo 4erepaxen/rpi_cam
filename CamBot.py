@@ -8,11 +8,11 @@ from libcamera import controls
 from libcamera import Transform
 
 picam2 = Picamera2()
-capture_config = picam2.create_still_configuration(transform = Transform(hflip=False, vflip=False))
+capture_config = picam2.create_still_configuration(transform = Transform(hflip=False, vflip=False), main={"size": (4608, 2592), "format": "RGB888"})
 picam2.start()
 
-#picam2.set_controls({"AfMetering": controls.AfMeteringEnum.Auto})
-#picam2.set_controls({"AfMode": controls.AfModeEnum.Auto})
+picam2.set_controls({"AfMetering": controls.AfMeteringEnum.Auto})
+picam2.set_controls({"AfMode": controls.AfModeEnum.Auto})
 
 def handle(msg):
     global telegramText
@@ -32,7 +32,7 @@ def handle(msg):
 def capture():
     print("Capturing photo...")
 
-    #picam2.autofocus_cycle()
+    picam2.autofocus_cycle()
     image = picam2.switch_mode_and_capture_file(capture_config, "photo.jpg")
 
     print("Sending photo to " + str(chat_id))
